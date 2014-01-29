@@ -2,6 +2,7 @@ TextSignature Plugin for CKEditor 4
 ===================================
 
 Created by ALL-INKL.COM - Neue Medien Münnich - 29. Jan 2014
+
 This plugin allows you to insert a signature below or above a text.
 
 
