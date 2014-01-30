@@ -1,6 +1,6 @@
 /*
  * TextSignature Plugin for CKEditor (http://github.com/nmmf/textsignature)
- * Created by ALL-INKL.COM - Neue Medien Münnich - 29. Jan 2014
+ * Created by ALL-INKL.COM - Neue Medien Münnich - 30. Jan 2014
  * Licensed under the terms of GPL, LGPL and MPL licenses.
  */
 CKEDITOR.plugins.add("textsignature", {
@@ -76,7 +76,10 @@ CKEDITOR.plugins.add("textsignature", {
 					}
 					
 					/* Scroll to focused point */
-					if(editor.getSelection()) editor.getSelection().scrollIntoView();
+					if(editor.getSelection) {
+						var sel = editor.getSelection();
+						if(sel && sel.scrollIntoView) { sel.scrollIntoView(); }
+					}
 					
 					/* Save Snapshot for Redo/Undo */
 					editor.fire("saveSnapshot");
@@ -93,7 +96,7 @@ CKEDITOR.plugins.add("textsignature", {
 				if(text.length == 0) return true;
 			} else {
 				if(node.nodeType == 1) {
-					if(node.nodeName.toLowerCase() == "img") return false;
+					if(node.nodeName && node.nodeName.toLowerCase() == "img") return false;
 					var cknode = new CKEDITOR.dom.element(node);
 					if(cknode && cknode.find("img").length > 0) return false;
 				}
