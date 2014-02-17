@@ -16,7 +16,6 @@ CKEDITOR.plugins.add("textsignature", {
 	set		: 	function(editor, s, pos, id){
 					
 					/* Focus CKEditor Instance and save snapshot for redo/undo */
-					editor.focus();
 					editor.fire("saveSnapshot");
 					
 					/* Get nodes */
