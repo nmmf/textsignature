@@ -74,12 +74,6 @@ CKEDITOR.plugins.add("textsignature", {
 						
 					}
 					
-					/* Scroll to focused point */
-					if(editor.getSelection) {
-						var sel = editor.getSelection();
-						if(sel && sel.scrollIntoView) { sel.scrollIntoView(); }
-					}
-					
 					/* Save Snapshot for Redo/Undo */
 					editor.fire("saveSnapshot");
 					
